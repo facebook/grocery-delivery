@@ -1,14 +1,14 @@
 #!/opt/chef/embedded/bin/ruby
 # vim: syntax=ruby:expandtab:shiftwidth=2:softtabstop=2:tabstop=2
 
-require 'between-meals/util'
-require 'between-meals/knife'
-require 'between-meals/repo/svn'
-require 'between-meals/repo/git'
-require 'between-meals/changeset'
-require 'grocery-delivery/config'
-require 'grocery-delivery/logging'
-require 'grocery-delivery/hooks'
+require 'between_meals/util'
+require 'between_meals/knife'
+require 'between_meals/repo/svn'
+require 'between_meals/repo/git'
+require 'between_meals/changeset'
+require 'grocery_delivery/config'
+require 'grocery_delivery/logging'
+require 'grocery_delivery/hooks'
 require 'optparse'
 require 'logger'
 
