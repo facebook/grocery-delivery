@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'grocery_delivery'
-  s.version = '0.0.3'
+  s.version = '0.0.4'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Grocery Delivery'
   s.description = 'Utility for keeping Chef servers in sync with a repo'
