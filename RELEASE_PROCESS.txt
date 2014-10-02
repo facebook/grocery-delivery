@@ -1,0 +1,13 @@
+To make a release you should
+
+On a checkout of the *upstream*:
+* Bump the version number in grocery_delivery.gemspec, commit locally, push
+    vi grocery_delivery.gemspec
+    git commit -a
+    git push origin master
+* Add and push a tag:
+    git tag -a v0.0.3 -m 'version 0.0.3'
+    git push origin --tags
+* Build and push a release:
+    gem build grocery_delivery.gemspec
+    gem push grocery_delivery-0.0.3.gem
