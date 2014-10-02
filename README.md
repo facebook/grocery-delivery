@@ -43,7 +43,7 @@ http://docs.getchef.com/essentials_node_object.html#whitelist-attributes
 
 The default config file is `/etc/gd-config.rb` but you may use -c to specify
 another. The config file works the same as client.rb does for Chef - there
-are a series of keywords that take an arguement and anything else is just
+are a series of keywords that take an argument and anything else is just
 standard Ruby.
 
 All command-line options are available in the config file:
