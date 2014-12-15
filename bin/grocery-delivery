@@ -115,7 +115,7 @@ def partial_upload(knife, repo, checkpoint, local_head)
     'Deleted databags' => deleted_databags,
   }.each do |msg, list|
     if list
-      GroceryDelivery::Log.warn("#{msg}: #{list}")
+      GroceryDelivery::Log.warn("#{msg}: #{list.map {|x| x.to_s}}")
     end
   end
 
