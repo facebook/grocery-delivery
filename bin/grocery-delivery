@@ -67,13 +67,14 @@ end
 
 def full_upload(knife)
   if GroceryDelivery::Config.berks
-    puts 'berks!'
     GroceryDelivery::Log.warn('Uploading all cookbooks with berkshelf')
-    GroceryDelivery::Log.debug('using cookbook paths'+GroceryDelivery::Config.cookbook_paths.to_s)
-    knife.berks_cookbook_upload_all()
+    GroceryDelivery::Log.debug("using cookbook paths: 
+                                #{GroceryDelivery::Config.cookbook_paths.to_s}")
+    knife.berks_cookbook_upload_all
+  else
+    GroceryDelivery::Log.warn('Uploading all cookbooks')
+    knife.cookbook_upload_all
   end
-  GroceryDelivery::Log.warn('Uploading all cookbooks')
-  knife.cookbook_upload_all
   GroceryDelivery::Log.warn('Uploading all roles')
   knife.role_upload_all
   GroceryDelivery::Log.warn('Uploading all databags')
@@ -126,10 +127,10 @@ def partial_upload(knife, repo, checkpoint, local_head)
   end
 
   knife.cookbook_delete(deleted_cookbooks) if deleted_cookbooks
-  if berks  # We're using berkshelf
+  if GroceryDelivery::Config.berks
     GroceryDelivery::Log.warn('Using Berkshelf to upload cookbooks')
-    knife.berks_cookbook_upload(added_cookbooks, cookbooks_path) if added_coobooks
-  else  # Just use knife
+    knife.berks_cookbook_upload(added_cookbooks) if added_cookbooks
+  else
     knife.cookbook_upload(added_cookbooks) if added_cookbooks
   end
   knife.role_delete(deleted_roles) if deleted_roles

@@ -1,7 +1,5 @@
 # Grocery Delivery
 
-A fork of Facebook's [grocery delivery](https://github.com/facebook/grocery-delivery).
-
 ## Intro
 Ohai!
 
