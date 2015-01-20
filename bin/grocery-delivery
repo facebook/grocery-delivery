@@ -68,8 +68,9 @@ end
 def full_upload(knife)
   if GroceryDelivery::Config.berks
     GroceryDelivery::Log.warn('Uploading all cookbooks with berkshelf')
-    GroceryDelivery::Log.debug("using cookbook paths: 
-                                #{GroceryDelivery::Config.cookbook_paths.to_s}")
+    GroceryDelivery::Log.debug(
+      "Using cookbook paths: #{GroceryDelivery::Config.cookbook_paths}"
+    )
     knife.berks_cookbook_upload_all
   else
     GroceryDelivery::Log.warn('Uploading all cookbooks')
