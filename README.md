@@ -75,6 +75,9 @@ In addition the following are also available:
 * vcs_path - Path to git or svn binary. If not given, just uses 'git' or 'svn'.
   Default: `nil`
 * plugin_path - Path to plugin file. Default: `/etc/gd-plugin.rb`
+* berks - Boolean to determine if we should use berkshelf to resolve 
+  dependencies and upload cookbooks. Default: `false`
+* berks_bin - Path to berkshelf. Default: `/opt/chefdk/bin/berks`
 
 ## Plugin
 

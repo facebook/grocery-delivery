@@ -42,5 +42,7 @@ module GroceryDelivery
     vcs_type 'svn'
     vcs_path nil
     plugin_path '/etc/gd-plugin.rb'
+    berks false
+    berks_bin '/opt/chefdk/bin/berks'
   end
 end
