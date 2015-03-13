@@ -39,7 +39,9 @@ module GroceryDelivery
       # `%` in `msg` then ruby will interpret it as a printf string and
       # expect more arguments to log().
       Syslog.log(level, '%s', msg)
-      puts msg if $stdout.tty?
+      # Assuming if env variable 'BUILD NUMBER' exists we're being run
+      # by jenkins or similar tool and want to log to stdout
+      puts msg if $stdout.tty? || !ENV['BUILD_NUMBER'].nil?
     end
 
     def self.debug(msg)
