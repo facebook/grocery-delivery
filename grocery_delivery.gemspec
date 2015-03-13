@@ -16,4 +16,9 @@ Gem::Specification.new do |s|
   }.each do |dep|
     s.add_dependency dep
   end
+  %w{
+    rubocop
+  }.each do |dep|
+    s.add_development_dependency dep
+  end
 end
