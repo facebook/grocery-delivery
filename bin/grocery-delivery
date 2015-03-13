@@ -62,7 +62,7 @@ end
 
 def read_checkpoint
   GroceryDelivery::Log.debug("Reading #{checkpoint_path}")
-  File.exists?(checkpoint_path) ? File.read(checkpoint_path).strip : nil
+  File.exist?(checkpoint_path) ? File.read(checkpoint_path).strip : nil
 end
 
 def full_upload(knife)
@@ -93,14 +93,12 @@ def partial_upload(knife, repo, checkpoint, local_head)
       repo,
       checkpoint,
       local_head,
-      {
-        :cookbook_dirs =>
+              :cookbook_dirs =>
           GroceryDelivery::Config.cookbook_paths,
         :role_dir =>
           GroceryDelivery::Config.role_path,
         :databag_dir =>
-          GroceryDelivery::Config.databag_path,
-      },
+          GroceryDelivery::Config.databag_path,,
     )
   rescue BetweenMeals::Changeset::ReferenceError
     GroceryDelivery::Log.error('Repo error, invalid revision, exiting')
@@ -146,8 +144,7 @@ def upload_changed(repo, checkpoint)
                        GroceryDelivery::Config.reponame)
 
   knife = BetweenMeals::Knife.new(
-    {
-      :logger => GroceryDelivery::Log,
+          :logger => GroceryDelivery::Log,
       :config => GroceryDelivery::Config.knife_config,
       :bin => GroceryDelivery::Config.knife_bin,
       :berks_bin => GroceryDelivery::Config.berks_bin,
@@ -157,7 +154,6 @@ def upload_changed(repo, checkpoint)
         File.join(base_dir, x)
       end,
       :databag_dir => File.join(base_dir, GroceryDelivery::Config.databag_path),
-    }
   )
 
   if checkpoint
@@ -187,7 +183,7 @@ def setup_config
       options[:timestamp] = s
     end
     opts.on('-c', '--config-file FILE', 'config file') do |s|
-      unless File.exists?(File.expand_path(s))
+      unless File.exist?(File.expand_path(s))
         GroceryDelivery::Log.error("Config file #{s} not found.")
         exit(2)
       end
@@ -200,7 +196,7 @@ def setup_config
       options[:pidfile] = s
     end
   end.parse!
-  if File.exists?(File.expand_path(options[:config_file]))
+  if File.exist?(File.expand_path(options[:config_file]))
     GroceryDelivery::Config.from_file(options[:config_file])
   end
   GroceryDelivery::Config.merge!(options)
