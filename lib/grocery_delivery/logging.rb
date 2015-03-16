@@ -33,13 +33,17 @@ module GroceryDelivery
       @@level = val
     end
 
+    def self.stdout=(val)
+      @@stdout = val
+    end
+
     def self.logit(level, msg)
       init unless @@init
       # You can't do `Syslog.log(level, msg)` because if there is a
       # `%` in `msg` then ruby will interpret it as a printf string and
       # expect more arguments to log().
       Syslog.log(level, '%s', msg)
-      puts msg if $stdout.tty?
+      puts msg if $stdout.tty? || @@stdout
     end
 
     def self.debug(msg)
