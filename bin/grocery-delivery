@@ -196,6 +196,9 @@ def setup_config
     opts.on('-l', '--lockfile FILE', 'lockfile') do |s|
       options[:lockfile] = s
     end
+    opts.on('--stdout', 'Log to stdout as well.') do |s|
+      options[:stdout] = true
+    end
     opts.on('-p', '--pidfile FILE', 'pidfile') do |s|
       options[:pidfile] = s
     end
@@ -205,6 +208,7 @@ def setup_config
   end
   GroceryDelivery::Config.merge!(options)
   GroceryDelivery::Log.verbosity = GroceryDelivery::Config.verbosity
+  GroceryDelivery::Log.stdout = GroceryDelivery::Config.stdout
   if GroceryDelivery::Config.dry_run
     GroceryDelivery::Log.warn('Dryrun mode activated, no changes will be made.')
   end
