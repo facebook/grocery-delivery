@@ -70,6 +70,9 @@ In addition the following are also available:
   relative to `reponame`. Default: `gd_revision`
 * knife_config - Knife config to use for uploads. Default:
   `/root/.chef/knife.rb`
+  Note: `knife.rb` will need to set `cookbook_path` pointing to the cookbook
+  path in the work directory,
+  e.g. `/var/chef/grocery_delivery_work/ops/chef/cookbooks`
 * knife_bin - Path to knife. Default: `/opt/chef/bin/knife`
 * vcs_type - Git or SVN? Default: `svn`
 * vcs_path - Path to git or svn binary. If not given, just uses 'git' or 'svn'.
