@@ -220,14 +220,17 @@ def setup_config
 end
 
 def get_repo
-  repo_path = File.join(GroceryDelivery::Config.master_path,
-                        GroceryDelivery::Config.reponame)
-  r = BetweenMeals::Repo.get(GroceryDelivery::Config.vcs_type, repo_path,
-                             GroceryDelivery::Log)
-  if GroceryDelivery::Config.vcs_path
-    r.bin = GroceryDelivery::Config.vcs_path
-  end
-  r
+  repo_path = File.join(
+    GroceryDelivery::Config.master_path,
+    GroceryDelivery::Config.reponame,
+  )
+  BetweenMeals::Repo.get(
+    GroceryDelivery::Config.vcs_type,
+    repo_path,
+    GroceryDelivery::Log,
+  )
+rescue
+  nil
 end
 
 setup_config
@@ -240,10 +243,7 @@ repo = get_repo
 
 GroceryDelivery::Hooks.prerun(GroceryDelivery::Config.dry_run)
 
-if repo.exists?
-  action('Updating repo')
-  repo.update unless GroceryDelivery::Config.dry_run
-else
+if repo.nil?
   unless GroceryDelivery::Config.repo_url
     GroceryDelivery::Log.error(
       'No repo URL was specified, and no repo is checked out'
@@ -254,6 +254,9 @@ else
   unless GroceryDelivery::Config.dry_run
     repo.checkout(GroceryDelivery::Config.repo_url)
   end
+else
+  action('Updating repo')
+  repo.update unless GroceryDelivery::Config.dry_run
 end
 
 GroceryDelivery::Hooks.post_repo_up(GroceryDelivery::Config.dry_run)
