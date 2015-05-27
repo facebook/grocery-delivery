@@ -1,3 +1,6 @@
+.vagrant
+.bundle
+.bundler
 *.gem
 *.rbc
 .bundle
