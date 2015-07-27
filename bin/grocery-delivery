@@ -123,7 +123,7 @@ def partial_upload(knife, repo, checkpoint, local_head)
     'Deleted databags' => deleted_databags,
   }.each do |msg, list|
     if list
-      GroceryDelivery::Log.warn("#{msg}: #{list.map {|x| x.to_s}}")
+      GroceryDelivery::Log.warn("#{msg}: #{list.map(&:to_s)}")
     end
   end
 
@@ -196,7 +196,7 @@ def setup_config
     opts.on('-l', '--lockfile FILE', 'lockfile') do |s|
       options[:lockfile] = s
     end
-    opts.on('--stdout', 'Log to stdout as well.') do |s|
+    opts.on('--stdout', 'Log to stdout as well.') do |_s|
       options[:stdout] = true
     end
     opts.on('-p', '--pidfile FILE', 'pidfile') do |s|
