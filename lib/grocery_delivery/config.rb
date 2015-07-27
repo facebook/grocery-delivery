@@ -23,7 +23,7 @@ module GroceryDelivery
   # it's compatible with v2, so it should work in 11 too.
   class Config
     extend Mixlib::Config
-    stdout  false
+    stdout false
     dry_run false
     verbosity Logger::WARN
     timestamp false

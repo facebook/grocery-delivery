@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.description = 'Utility for keeping Chef servers in sync with a repo'
   s.authors = ['Phil Dibowitz', 'Marcin Sawicki']
   s.extra_rdoc_files = ['README.md', 'LICENSE']
-  s.files = %w{README.md LICENSE} + Dir.glob("lib/grocery_delivery/*.rb") +
-    Dir.glob("bin/*")
+  s.files = %w{README.md LICENSE} + Dir.glob('lib/grocery_delivery/*.rb') +
+    Dir.glob('bin/*')
   s.executables = 'grocery-delivery'
   s.license = 'Apache'
   %w{
