@@ -22,3 +22,7 @@ tmp
 mkmf.log
 bin/
 sbin/
+test/syntaxcache/
+.vagrant
+.bundle
+.bundler
