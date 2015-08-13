@@ -1,0 +1,8 @@
+lockfile '/tmp/grocery_delivery'
+pidfile '/tmp/grocery_delivery.pid'
+master_path '/tmp/master_path'
+vcs_type 'git'
+reponame 'target'
+repo_url 'file:///tmp/source'
+knife_bin 'bundle exec knife'
+knife_config './test/knife.rb'
