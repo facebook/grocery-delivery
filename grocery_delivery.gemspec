@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.executables = 'grocery-delivery'
   s.license = 'Apache'
   s.add_dependency 'mixlib-config'
-  s.add_dependency 'between_meals >= 0.0.6'
+  s.add_dependency 'between_meals', '>= 0.0.6'
   %w{
     rubocop
     knife-solo
