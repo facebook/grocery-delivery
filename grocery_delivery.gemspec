@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'grocery_delivery'
-  s.version = '0.0.5'
+  s.version = '0.0.6'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Grocery Delivery'
   s.description = 'Utility for keeping Chef servers in sync with a repo'
@@ -10,12 +10,8 @@ Gem::Specification.new do |s|
     Dir.glob('bin/*')
   s.executables = 'grocery-delivery'
   s.license = 'Apache'
-  %w{
-    mixlib-config
-    between_meals
-  }.each do |dep|
-    s.add_dependency dep
-  end
+  s.add_dependency 'mixlib-config'
+  s.add_dependency 'between_meals >= 0.0.6'
   %w{
     rubocop
     knife-solo
