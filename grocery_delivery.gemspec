@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors = ['Phil Dibowitz', 'Marcin Sawicki']
   s.extra_rdoc_files = ['README.md', 'LICENSE']
   s.files = %w{README.md LICENSE} + Dir.glob('lib/grocery_delivery/*.rb') +
-    Dir.glob('bin/*')
+            Dir.glob('bin/*')
   s.executables = 'grocery-delivery'
   s.license = 'Apache'
   s.add_dependency 'mixlib-config'
