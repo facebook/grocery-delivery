@@ -80,12 +80,35 @@ FileName:
 PerceivedComplexity:
   Enabled: false
 
-TrailingComma:
-  Enabled: false
+TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
 
 UnneededDisable:
   Enabled: false
 
+MultilineOperationIndentation:
+  Enabled: false
+
+Performance/RedundantMatch:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Performance/TimesMap:
+  Enabled: false
+
+Performance/RedundantMerge:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/IndentArray:
+  EnforcedStyle: consistent
 #
 # Modified rules
 #
@@ -97,3 +120,6 @@ DotPosition:
 
 HashSyntax:
   EnforcedStyle: hash_rockets
+
+Style/Documentation:
+  Enabled: false

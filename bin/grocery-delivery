@@ -42,7 +42,7 @@ end
 def get_lock
   GroceryDelivery::Log.warn('Attempting to acquire lock')
   $lockfileh = File.open(GroceryDelivery::Config.lockfile,
-                         File::RDWR | File::CREAT, 0600)
+                         File::RDWR | File::CREAT, 0o600)
   $lockfileh.flock(File::LOCK_EX)
   GroceryDelivery::Log.warn('Lock acquired')
 end
@@ -69,7 +69,7 @@ def full_upload(knife)
   if GroceryDelivery::Config.berks
     GroceryDelivery::Log.warn('Uploading all cookbooks with berkshelf')
     GroceryDelivery::Log.debug(
-      "Using cookbook paths: #{GroceryDelivery::Config.cookbook_paths}"
+      "Using cookbook paths: #{GroceryDelivery::Config.cookbook_paths}",
     )
     knife.berks_cookbook_upload_all
   else
@@ -84,7 +84,7 @@ end
 
 def partial_upload(knife, repo, checkpoint, local_head)
   GroceryDelivery::Log.warn(
-    "Determing changes... from #{checkpoint} to #{local_head}"
+    "Determing changes... from #{checkpoint} to #{local_head}",
   )
 
   begin
@@ -128,11 +128,13 @@ def partial_upload(knife, repo, checkpoint, local_head)
   end
 
   knife.cookbook_delete(deleted_cookbooks) if deleted_cookbooks
-  if GroceryDelivery::Config.berks
-    GroceryDelivery::Log.warn('Using Berkshelf to upload cookbooks')
-    knife.berks_cookbook_upload(added_cookbooks) if added_cookbooks
-  else
-    knife.cookbook_upload(added_cookbooks) if added_cookbooks
+  if added_cookbooks
+    if GroceryDelivery::Config.berks
+      GroceryDelivery::Log.warn('Using Berkshelf to upload cookbooks')
+      knife.berks_cookbook_upload(added_cookbooks)
+    else
+      knife.cookbook_upload(added_cookbooks)
+    end
   end
   knife.role_delete(deleted_roles) if deleted_roles
   knife.role_upload(added_roles) if added_roles
@@ -157,7 +159,7 @@ def upload_changed(repo, checkpoint)
         File.join(base_dir, x)
       end,
       :databag_dir => File.join(base_dir, GroceryDelivery::Config.databag_path),
-    }
+    },
   )
 
   if checkpoint
@@ -246,7 +248,7 @@ if repo.exists?
 else
   unless GroceryDelivery::Config.repo_url
     GroceryDelivery::Log.error(
-      'No repo URL was specified, and no repo is checked out'
+      'No repo URL was specified, and no repo is checked out',
     )
     exit(1)
   end
@@ -260,7 +262,7 @@ GroceryDelivery::Hooks.post_repo_up(GroceryDelivery::Config.dry_run)
 
 if GroceryDelivery::Config.dry_run && !repo.exists?
   GroceryDelivery::Log.warn(
-    'In dryrun mode, with no repo, there\'s not much I can dryrun'
+    'In dryrun mode, with no repo, there\'s not much I can dryrun',
   )
   GroceryDelivery::Hooks.postrun(GroceryDelivery::Config.dry_run, true,
                                  'dryrun mode')
