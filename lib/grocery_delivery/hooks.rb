@@ -42,7 +42,7 @@ module GroceryDelivery
     end
 
     def self.get(file)
-      class_eval(File.read(file), __FILE__, __LINE__) if File.exists?(file)
+      class_eval(File.read(file), file, 1) if File.exists?(file)
     end
   end
 end
