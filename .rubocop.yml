@@ -17,6 +17,9 @@ NumericLiterals:
 MultilineTernaryOperator:
   Enabled: false
 
+BlockLength:
+  Enabled: false
+
 ModuleLength:
   Enabled: false
 

@@ -19,27 +19,25 @@ module GroceryDelivery
   class Hooks
     # This code will run once we've read our config and loaded our plugins
     # but before *anything* else. We don't even have a lock yet.
-    def self.preflight_checks(_dryrun)
-    end
+    def self.preflight_checks(_dryrun); end
 
     # This is run after we've gotten a lock, written a pidfile and initialized
     # our repo object (but not touched the repo yet)
-    def self.prerun(_dryrun)
-    end
+    def self.prerun(_dryrun); end
 
     # This is code to run after we've updated the repo, but before we've done
     # any work to parse it.
-    def self.post_repo_up(_dryrun)
-    end
+    def self.post_repo_up(_dryrun); end
+
+    # This is code to run after right before we start uploads
+    def self.pre_upload(_dryrun, _knife, _local_head); end
 
     # After we parse the updates to the repo and uploaded/deleted the relevent
     # items from the local server.
-    def self.postrun(_dryrun, _success, _msg)
-    end
+    def self.postrun(_dryrun, _success, _msg); end
 
     # exit hooks.
-    def self.atexit(_dryrun, _success, _msg)
-    end
+    def self.atexit(_dryrun, _success, _msg); end
 
     def self.get(file)
       class_eval(File.read(file), file, 1) if File.exists?(file)

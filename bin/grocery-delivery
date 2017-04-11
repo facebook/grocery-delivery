@@ -161,6 +161,9 @@ def upload_changed(repo, checkpoint)
       :databag_dir => File.join(base_dir, GroceryDelivery::Config.databag_path),
     },
   )
+  GroceryDelivery::Hooks.pre_upload(
+    GroceryDelivery::Config.dry_run, knife, local_head
+  )
 
   if checkpoint
     partial_upload(knife, repo, checkpoint, local_head)
