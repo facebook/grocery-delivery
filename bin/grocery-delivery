@@ -155,6 +155,7 @@ def upload_changed(repo, checkpoint)
       :berks_bin => GroceryDelivery::Config.berks_bin,
       :berks_config => GroceryDelivery::Config.berks_config,
       :role_dir => File.join(base_dir, GroceryDelivery::Config.role_path),
+      :role_type => GroceryDelivery::Config.role_type,
       :cookbook_dirs => GroceryDelivery::Config.cookbook_paths.map do |x|
         File.join(base_dir, x)
       end,
