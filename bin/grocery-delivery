@@ -295,4 +295,5 @@ end
 GroceryDelivery::Log.warn($status_msg)
 GroceryDelivery::Hooks.postrun(GroceryDelivery::Config.dry_run, $success,
                                $status_msg)
+exit($success)
 # rubocop:enable GlobalVars
