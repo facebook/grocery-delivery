@@ -65,9 +65,9 @@ In addition the following are also available:
 * cookbook_paths - An array of directories that contain cookbooks relative to
   `reponame`. Default: `['chef/cookbooks']`
 * role_path - A directory to find roles in relative to `reponame`. Default:
-  `['chef/roles']`
+  `'chef/roles'`
 * databag_path - A directory to find databags in relative to `reponame`.
-  Default: `['chef/databags']`
+  Default: `'chef/databags'`
 * rev_checkpoint - Name of the file to store the last-uploaded revision,
   relative to `reponame`. Default: `gd_revision`
 * knife_config - Knife config to use for uploads. Default:
@@ -80,7 +80,7 @@ In addition the following are also available:
 * vcs_path - Path to git or svn binary. If not given, just uses 'git' or 'svn'.
   Default: `nil`
 * plugin_path - Path to plugin file. Default: `/etc/gd-plugin.rb`
-* berks - Boolean to determine if we should use berkshelf to resolve 
+* berks - Boolean to determine if we should use berkshelf to resolve
   dependencies and upload cookbooks. Default: `false`
 * berks_bin - Path to berkshelf. Default: `/opt/chefdk/bin/berks`
 
