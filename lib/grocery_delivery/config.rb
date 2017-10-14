@@ -35,6 +35,7 @@ module GroceryDelivery
     reponame 'ops'
     cookbook_paths ['chef/cookbooks']
     role_path 'chef/roles'
+    role_type 'rb'
     databag_path 'chef/databags'
     rev_checkpoint 'gd_revision'
     knife_config '/root/.chef/knife.rb'
