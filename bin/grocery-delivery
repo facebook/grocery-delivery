@@ -101,6 +101,7 @@ def partial_upload(knife, repo, checkpoint, local_head)
         :databag_dir =>
           GroceryDelivery::Config.databag_path,
       },
+      GroceryDelivery::Config.track_symlinks,
     )
   rescue BetweenMeals::Changeset::ReferenceError
     GroceryDelivery::Log.error('Repo error, invalid revision, exiting')

@@ -46,5 +46,6 @@ module GroceryDelivery
     berks false
     berks_bin '/opt/chefdk/bin/berks'
     berks_config nil
+    track_symlinks false
   end
 end
