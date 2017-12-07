@@ -26,7 +26,6 @@ module GroceryDelivery
     stdout false
     dry_run false
     verbosity Logger::WARN
-    timestamp false
     config_file '/etc/gd-config.rb'
     pidfile '/var/run/grocery_delivery.pid'
     lockfile '/var/lock/subsys/grocery_delivery'
