@@ -282,7 +282,7 @@ else
     write_checkpoint(ver)
     $success = true
     $status_msg = "Success at #{ver}"
-  rescue => e
+  rescue StandardError => e
     $status_msg = e.message
     e.backtrace.each do |line|
       GroceryDelivery::Log.error(line)
