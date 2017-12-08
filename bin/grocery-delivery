@@ -190,9 +190,6 @@ def setup_config
         options[:verbosity] = ::Logger::INFO
       end
     end
-    opts.on('-T', '--timestamp', 'Timestamp output') do |s|
-      options[:timestamp] = s
-    end
     opts.on('-c', '--config-file FILE', 'config file') do |s|
       unless File.exists?(File.expand_path(s))
         GroceryDelivery::Log.error("Config file #{s} not found.")
@@ -285,7 +282,7 @@ else
     write_checkpoint(ver)
     $success = true
     $status_msg = "Success at #{ver}"
-  rescue => e
+  rescue StandardError => e
     $status_msg = e.message
     e.backtrace.each do |line|
       GroceryDelivery::Log.error(line)

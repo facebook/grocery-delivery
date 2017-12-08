@@ -10,12 +10,12 @@ Gem::Specification.new do |s|
             Dir.glob('bin/*')
   s.executables = 'grocery-delivery'
   s.license = 'Apache'
-  s.add_dependency 'mixlib-config'
   s.add_dependency 'between_meals', '>= 0.0.6'
+  s.add_dependency 'mixlib-config'
   %w{
-    rubocop
-    knife-solo
     chef-zero
+    knife-solo
+    rubocop
   }.each do |dep|
     s.add_development_dependency dep
   end
