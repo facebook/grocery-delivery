@@ -1,14 +1,16 @@
 To make a release you should
 
-On a checkout of the *upstream*:
+On your checkout:
 * Update the version number and changelog, commit locally, push
     vi CHANGELOG.md
     vi grocery_delivery.gemspec
-    git commit -a
-    git push origin master
+    # create a pull request and merge it
+
+On a checkout of the **UPSTREAM** repo:
 * Add and push a tag:
-    git tag -a v0.0.3 -m 'version 0.0.3'
+    git tag -a v0.0.X -m 'version 0.0.x'
     git push origin --tags
+
 * Build and push a release:
     gem build grocery_delivery.gemspec
-    gem push grocery_delivery-0.0.3.gem
+    gem push grocery_delivery-0.0.X.gem
