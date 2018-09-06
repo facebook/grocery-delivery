@@ -65,6 +65,7 @@ In addition the following are also available:
   `reponame`. Default: `['chef/cookbooks']`
 * role_path - A directory to find roles in relative to `reponame`. Default:
   `'chef/roles'`
+* role_type - RB or JSON roles? Default: `rb`
 * databag_path - A directory to find databags in relative to `reponame`.
   Default: `'chef/databags'`
 * rev_checkpoint - Name of the file to store the last-uploaded revision,
