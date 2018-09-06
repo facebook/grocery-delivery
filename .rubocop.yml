@@ -136,6 +136,10 @@ Layout/EmptyLineBetweenDefs:
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyleForEmptyBraces: space
 
+# wants magic comments everywhere
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 #
 # Modified rules
 #
