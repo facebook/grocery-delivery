@@ -4,6 +4,7 @@ set -e
 set -o verbose
 bundle exec chef-zero &
 ZERO=$!
+trap "kill -9 $ZERO" EXIT
 SOURCE=/tmp/source
 sleep 5
 
@@ -45,4 +46,3 @@ gd
 )
 gd
 
-kill -9 $ZERO
