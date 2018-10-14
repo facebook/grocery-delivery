@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'between_meals', '>= 0.0.6'
   s.add_dependency 'mixlib-config'
   [
-    'rubocop',
     # tests spin up a chef-zero instance
     'chef-zero',
     # and the tests need knife
@@ -23,4 +22,5 @@ Gem::Specification.new do |s|
   ].each do |dep|
     s.add_development_dependency dep
   end
+  s.add_development_dependency 'rubocop', '= 0.49.1'
 end
