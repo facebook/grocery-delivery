@@ -1,6 +1,7 @@
 # Grocery Delivery
 
 [![Build Status](https://travis-ci.org/facebook/grocery-delivery.svg)](http://travis-ci.org/facebook/grocery-delivery)
+[![CircleCI](https://circleci.com/gh/facebook/grocery-delivery.svg?style=svg)](https://circleci.com/gh/facebook/grocery-delivery)
 
 ## Intro
 Ohai!
