@@ -110,7 +110,7 @@ to parse it.
 
 * self.postrun(dryrun, success, msg)
 
-After we've parsed the updates to the repo and uploaded/deleted the relevent
+After we've parsed the updates to the repo and uploaded/deleted the relevant
 items from the local server. `Success` is a bool for whether we succeeded, and
 `msg` is the status message - either the revision we sync'd or an error.
 
