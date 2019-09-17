@@ -52,25 +52,25 @@ module GroceryDelivery
 
     def self.debug(msg)
       if @@level == Logger::DEBUG
-        msg.prepend('DEBUG: ')
+        msg.to_s.prepend('DEBUG: ')
         logit(Syslog::LOG_DEBUG, msg)
       end
     end
 
     def self.info(msg)
       if @@level == Logger::INFO
-        msg.prepend('INFO: ')
+        msg.to_s.prepend('INFO: ')
         logit(Syslog::LOG_INFO, msg)
       end
     end
 
     def self.warn(msg)
-      msg.prepend('WARN: ')
+      msg.to_s.prepend('WARN: ')
       logit(Syslog::LOG_WARNING, msg)
     end
 
     def self.error(msg)
-      msg.prepend('ERROR: ')
+      msg.to_s.prepend('ERROR: ')
       logit(Syslog::LOG_ERR, msg)
     end
   end
