@@ -29,6 +29,10 @@ module GroceryDelivery
       @@init = true
     end
 
+    def self.level
+      @@level
+    end
+
     def self.verbosity=(val)
       @@level = val
     end
