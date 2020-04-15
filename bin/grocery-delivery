@@ -84,7 +84,7 @@ end
 
 def partial_upload(knife, repo, checkpoint, local_head)
   GroceryDelivery::Log.warn(
-    "Determing changes... from #{checkpoint} to #{local_head}",
+    "Determining changes... from #{checkpoint} to #{local_head}",
   )
 
   begin
