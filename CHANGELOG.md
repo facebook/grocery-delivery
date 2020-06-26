@@ -1,10 +1,12 @@
+# Changelog
+
 ## 0.0.8
 * Remove timestamp option
 * Add option to track symlinks
 * Return exit status properly
 * Fix bug with roles/databags
 * Support JSON roles
-* Add pre_upload hook
+* Add `pre_upload` hook
 * Report errors in hooks more clearly
 
 ## 0.0.7
