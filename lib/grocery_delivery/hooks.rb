@@ -40,7 +40,7 @@ module GroceryDelivery
     def self.atexit(_dryrun, _success, _msg); end
 
     def self.get(file)
-      class_eval(File.read(file), file, 1) if File.exists?(file)
+      class_eval(File.read(file), file, 1) if File.exist?(file)
     end
   end
 end
