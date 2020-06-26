@@ -1,0 +1,48 @@
+name: Continuous Integration
+on:
+  push:
+    branches: [master]
+  pull_request:
+jobs:
+  ruby:
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.4, 2.5, 2.6]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Install dependencies
+      run: bundle install
+    - name: Run rspec
+      run: bundle exec rspec
+    - name: Run rubocop
+      run: bundle exec rubocop --display-cop-names
+    - name: Run integration testing
+      run: ./test/run.sh
+# This doesn't work on PRs from forks due to GITHUB_TOKEN, which makes
+# it kinda useless for now
+# https://github.com/andrewmcodes/rubocop-linter-action/issues/68
+#  rubocop:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Checkout repository
+#      uses: actions/checkout@v2
+#    - name: Run Rubocop Linter
+#      uses: andrewmcodes/rubocop-linter-action@v3.2.0
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Lint Markdown
+      uses: actionshub/markdownlint@1.2.0
+    - name: Check links
+      uses: gaurav-nelson/github-action-markdown-link-check@v1

@@ -36,5 +36,13 @@ Gem::Specification.new do |s|
   ].each do |dep|
     s.add_development_dependency dep
   end
+  %w{
+    rspec-core
+    rspec-expectations
+    rspec-mocks
+    simplecov
+  }.each do |dep|
+    s.add_development_dependency dep
+  end
   s.add_development_dependency 'rubocop', '= 0.49.1'
 end

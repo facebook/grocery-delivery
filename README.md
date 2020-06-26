@@ -30,12 +30,12 @@ principals:
 * You want all your chef-servers in sync
 * Everything you care about comes from version control.
 
-We recommend using the whitelist_node_attrs
-(https://github.com/opscode/whitelist-node-attrs) cookbook to prevent node
-attributes being saved back to the server. Or in recent versions of Chef 11,
-this feature is built-in:
-
-http://docs.getchef.com/essentials_node_object.html#whitelist-attributes
+We recommend enabling attributes whitelisting to prevent node attributes being
+saved back to the server. In recent versions of Chef (past Chef 11), this
+feature is [built-in](https://docs.chef.io/nodes/#whitelist-attributes). For
+older versions, we recommend using the
+[`whitelist_node_attrs`](https://github.com/chef-boneyard/whitelist-node-attrs)
+cookbook.
 
 ## Dependencies
 
@@ -44,7 +44,7 @@ http://docs.getchef.com/essentials_node_object.html#whitelist-attributes
 
 ## Config file
 
-The default config file is `/etc/gd-config.rb` but you may use -c to specify
+The default config file is `/etc/gd-config.rb` but you may use `-c` to specify
 another. The config file works the same as client.rb does for Chef - there
 are a series of keywords that take an argument and anything else is just
 standard Ruby.
@@ -57,38 +57,38 @@ All command-line options are available in the config file:
 * pidfile (string, default: `/var/run/grocery_delivery.pid`)
 
 In addition the following are also available:
-* master_path - The top-level path for Grocery Delivery's work. Most other
+* `master_path` - The top-level path for Grocery Delivery's work. Most other
   paths are relative to this. Default: `/var/chef/grocery_delivery_work`
-* repo_url - The URL to clone/checkout if it doesn't exist. Default: `nil`
-* reponame - The relative directory to check the repo out to, inside of
+* `repo_url` - The URL to clone/checkout if it doesn't exist. Default: `nil`
+* `reponame` - The relative directory to check the repo out to, inside of
   `master_path`. Default: `ops`
-* cookbook_paths - An array of directories that contain cookbooks relative to
+* `cookbook_paths` - An array of directories that contain cookbooks relative to
   `reponame`. Default: `['chef/cookbooks']`
-* role_path - A directory to find roles in relative to `reponame`. Default:
+* `role_path` - A directory to find roles in relative to `reponame`. Default:
   `'chef/roles'`
-* role_type - RB or JSON roles? Default: `rb`
-* databag_path - A directory to find databags in relative to `reponame`.
+* `role_type` - RB or JSON roles? Default: `rb`
+* `databag_path` - A directory to find databags in relative to `reponame`.
   Default: `'chef/databags'`
-* rev_checkpoint - Name of the file to store the last-uploaded revision,
+* `rev_checkpoint` - Name of the file to store the last-uploaded revision,
   relative to `reponame`. Default: `gd_revision`
-* knife_config - Knife config to use for uploads. Default:
+* `knife_config` - Knife config to use for uploads. Default:
   `/root/.chef/knife.rb`
   Note: `knife.rb` will need to set `cookbook_path` pointing to the cookbook
   path in the work directory,
   e.g. `/var/chef/grocery_delivery_work/ops/chef/cookbooks`
-* knife_bin - Path to knife. Default: `/opt/chef/bin/knife`
-* vcs_type - Git or SVN? Default: `svn`
-* vcs_path - Path to git or svn binary. If not given, just uses 'git' or 'svn'.
+* `knife_bin` - Path to knife. Default: `/opt/chef/bin/knife`
+* `vcs_type` - Git or SVN? Default: `svn`
+* `vcs_path` - Path to git or svn binary. If not given, just uses 'git' or 'svn'.
   Default: `nil`
-* plugin_path - Path to plugin file. Default: `/etc/gd-plugin.rb`
-* berks - Boolean to determine if we should use berkshelf to resolve
+* `plugin_path` - Path to plugin file. Default: `/etc/gd-plugin.rb`
+* `berks` - Boolean to determine if we should use berkshelf to resolve
   dependencies and upload cookbooks. Default: `false`
-* berks_bin - Path to berkshelf. Default: `/opt/chefdk/bin/berks`
+* `berks_bin` - Path to berkshelf. Default: `/opt/chefdk/bin/berks`
 
 ## Plugin
 
 The plugin should be a ruby file which defines several class methods. It is
-class_eval()d into a Hooks class.
+`class_eval()`d into a `Hooks` class.
 
 The following functions can optionally be defined:
 
