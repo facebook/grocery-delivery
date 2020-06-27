@@ -14,7 +14,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'grocery_delivery'
-  s.version = '0.0.8'
+  s.version = '0.0.9'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Grocery Delivery'
   s.description = 'Utility for keeping Chef servers in sync with a repo'
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
             Dir.glob('bin/*')
   s.executables = 'grocery-delivery'
   s.license = 'Apache'
-  s.add_dependency 'between_meals', '>= 0.0.6'
+  s.add_dependency 'between_meals', '>= 0.0.11'
   s.add_dependency 'mixlib-config'
   [
     # tests spin up a chef-zero instance

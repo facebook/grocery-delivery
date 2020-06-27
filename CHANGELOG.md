@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.9
+* Support severity levels for log messages
+
 ## 0.0.8
 * Remove timestamp option
 * Add option to track symlinks
