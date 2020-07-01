@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.files = %w{README.md LICENSE} + Dir.glob('lib/grocery_delivery/*.rb') +
             Dir.glob('bin/*')
   s.executables = 'grocery-delivery'
-  s.license = 'Apache'
+  s.license = 'Apache-2.0'
   s.add_dependency 'between_meals', '>= 0.0.11'
   s.add_dependency 'mixlib-config'
   [
