@@ -15,34 +15,20 @@
 Gem::Specification.new do |s|
   s.name = 'grocery_delivery'
   s.version = '0.0.9'
-  s.platform = Gem::Platform::RUBY
   s.summary = 'Grocery Delivery'
   s.description = 'Utility for keeping Chef servers in sync with a repo'
+  s.license = 'Apache-2.0'
   s.authors = ['Phil Dibowitz', 'Marcin Sawicki']
-  s.extra_rdoc_files = ['README.md', 'LICENSE']
-  s.files = %w{README.md LICENSE} + Dir.glob('lib/grocery_delivery/*.rb') +
-            Dir.glob('bin/*')
-  s.executables = 'grocery-delivery'
-  s.license = 'Apache'
+  s.homepage = 'https://github.com/facebook/grocery-delivery'
+  s.platform = Gem::Platform::RUBY
+  s.extra_rdoc_files = %w{README.md LICENSE}
+
+  s.files = %w{README.md LICENSE} +
+     Dir.glob('lib/**/*', File::FNM_DOTMATCH).reject { |f| File.directory?(f) }
+
+  s.bindir = %w{bin}
+  s.executables = %w{grocery-delivery}
+
   s.add_dependency 'between_meals', '>= 0.0.11'
   s.add_dependency 'mixlib-config'
-  [
-    # tests spin up a chef-zero instance
-    'chef-zero',
-    # and the tests need knife
-    'chef-dk',
-    # to work around https://github.com/chef/chef/issues/7383
-    'openssl',
-  ].each do |dep|
-    s.add_development_dependency dep
-  end
-  %w{
-    rspec-core
-    rspec-expectations
-    rspec-mocks
-    simplecov
-  }.each do |dep|
-    s.add_development_dependency dep
-  end
-  s.add_development_dependency 'rubocop', '= 0.55.0'
 end
