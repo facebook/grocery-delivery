@@ -56,8 +56,14 @@ def checkpoint_path
             GroceryDelivery::Config.rev_checkpoint)
 end
 
+def atomic_write(path, content)
+  new_path = path + '.new'
+  File.write(new_path, content)
+  File.rename(new_path, path)
+end
+
 def write_checkpoint(rev)
-  File.write(checkpoint_path, rev) unless GroceryDelivery::Config.dry_run
+  atomic_write(checkpoint_path, rev) unless GroceryDelivery::Config.dry_run
 end
 
 def read_checkpoint
