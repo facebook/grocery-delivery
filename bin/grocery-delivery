@@ -68,7 +68,9 @@ end
 
 def read_checkpoint
   GroceryDelivery::Log.debug("Reading #{checkpoint_path}")
-  File.exist?(checkpoint_path) ? File.read(checkpoint_path).strip : nil
+  return nil unless File.exist?(checkpoint_path)
+  checkpoint = File.read(checkpoint_path).strip
+  checkpoint.empty? ? nil : checkpoint
 end
 
 def full_upload(knife)
