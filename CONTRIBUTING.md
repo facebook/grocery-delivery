@@ -10,7 +10,7 @@ RubyGems.
 ## Pull Requests
 We actively welcome your pull requests.
 
-1. Fork the repo and create your branch from `master`.
+1. Fork the repo and create your branch from `main`.
 1. If you've added code that should be tested, add tests.
 1. If you've changed APIs, update the documentation.
 1. Ensure the test suite passes.
