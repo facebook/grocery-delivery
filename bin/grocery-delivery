@@ -190,6 +190,9 @@ def setup_config
     opts.on('-n', '--dry-run', 'Dryrun mode') do |s|
       options[:dry_run] = s
     end
+    opts.on('-u', '--no-update', 'Do not update local repository') do |s|
+      options[:no_update] = s
+    end
     opts.on('-v', '--verbosity', 'Verbosity level. Twice for debug.') do
       # If -vv is supplied this block is executed twice
       if options[:verbosity]
