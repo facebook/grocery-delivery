@@ -254,7 +254,7 @@ GroceryDelivery::Hooks.prerun(GroceryDelivery::Config.dry_run)
 
 if repo.exists?
   action('Updating repo')
-  repo.update unless GroceryDelivery::Config.dry_run
+  repo.update unless (GroceryDelivery::Config.dry_run || GroceryDelivery::Config.no_update)
 else
   unless GroceryDelivery::Config.repo_url
     GroceryDelivery::Log.error(
