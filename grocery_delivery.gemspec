@@ -14,7 +14,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'grocery_delivery'
-  s.version = '0.0.9'
+  s.version = '0.0.10'
   s.summary = 'Grocery Delivery'
   s.description = 'Utility for keeping Chef servers in sync with a repo'
   s.license = 'Apache-2.0'
