@@ -25,6 +25,7 @@ module GroceryDelivery
     extend Mixlib::Config
     stdout false
     dry_run false
+    no_update false
     verbosity Logger::WARN
     config_file '/etc/gd-config.rb'
     pidfile '/var/run/grocery_delivery.pid'

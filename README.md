@@ -50,6 +50,7 @@ standard Ruby.
 
 All command-line options are available in the config file:
 * dry_run (bool, default: false)
+* no_update (bool, default: false)
 * debug (bool, default: false)
 * config_file (string, default: `/etc/gd-config.rb`)
 * lockfile (string, default: `/var/lock/subsys/grocery_delivery`)
