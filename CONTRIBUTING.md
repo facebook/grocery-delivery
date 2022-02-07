@@ -4,9 +4,9 @@ possible.
 
 ## Our Development Process
 All changes to Grocery Delivery are developed on this GitHub repo. Changes
-committed are then rolled out internally before a formal release is done on 
-RubyGems. Do not bump the Gem version in `grocery_delivery.gemspec`; maintainers 
-will bump when the new release is ready.
+committed are then rolled out internally before a formal release is done on
+RubyGems. Do not bump the Gem version in `grocery_delivery.gemspec`;
+maintainers will bump when the new release is ready.
 
 ## Pull Requests
 We actively welcome your pull requests.
