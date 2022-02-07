@@ -227,7 +227,7 @@ The following configuration options are available:
 
 * **`rev_checkpoint`**
 
-  Description: Name of the file to store the last-uploaded revision, relative to `reponame`.
+  Description: File with last-uploaded revision, relative to reponame.
 
   CLI Argument(s): `'-C', '--revision-checkpoint FILE'`
 
@@ -261,7 +261,7 @@ The following configuration options are available:
 
   CLI Argument(s): `'--stdout'`
 
-  Value data type: `Boolean` 
+  Value data type: `Boolean`
 
   Default: `false`
 
@@ -273,7 +273,7 @@ The following configuration options are available:
 
   CLI Argument(s): `'--track-symlinks'`
 
-  Value data type: `Boolean` 
+  Value data type: `Boolean`
 
   Default: `false`
 
@@ -312,7 +312,6 @@ The following configuration options are available:
   Default: `WARN`
 
   Notes: Specify twice via CLI for debug.
-
 
 ## Plugin
 
