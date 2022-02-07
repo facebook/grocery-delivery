@@ -207,12 +207,12 @@ def setup_config
     end
     opts.on('-C',
             '--revision-checkpoint FILE',
-            'File to store the last-uploaded revision, relative to reponame') do |s|
+            'File with last-uploaded revision, relative to reponame') do |s|
       options[:rev_checkpoint] = s
     end
     opts.on('--cookbook-paths DIRECTORY1 DIRECTORY2 DIRECTORY3 ...',
             Array,
-            'Space-delimited array of dirs to cookbooks relative to reponame') do |s|
+            'Space-delimited dirs array to cookbooks rel to reponame') do |s|
       options[:cookbook_paths] = s
     end
     opts.on('-d', '--databag-path FILE',
