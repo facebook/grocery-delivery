@@ -247,7 +247,9 @@ def setup_config
     opts.on('-P', '--plugin-path FILE', 'Path to plugin file') do |s|
       options[:plugin_path] = s
     end
-    opts.on('-r', '--role-path FILE', 'A directory to find roles in relative to reponame') do |s|
+    opts.on('-r',
+            '--role-path FILE',
+            'A directory to find roles in relative to reponame') do |s|
       options[:role_path] = s
     end
     opts.on('-R', '--role-type TYPE', 'RB or JSON roles') do |s|
@@ -259,10 +261,14 @@ def setup_config
     opts.on('--track-symlinks', 'Track symlinks.') do |_s|
       options[:track_symlinks] = true
     end
-    opts.on('-u', '--repo-url URL', 'URL to clone/checkout if it does not exist') do |s|
+    opts.on('-u',
+            '--repo-url URL',
+            'URL to clone/checkout if it does not exist') do |s|
       options[:repo_url] = s
     end
-    opts.on('-U', '--no-repo-update', 'Disable cookbook repo update before run') do |_s|
+    opts.on('-U',
+            '--no-repo-update',
+            'Disable cookbook repo update before run') do |_s|
       options[:repo_update] = false
     end
     opts.on('--vcs-path FILE', 'Path to git or svn binary') do |s|
@@ -277,7 +283,7 @@ def setup_config
         options[:verbosity] = ::Logger::DEBUG
       else
         options[:verbosity] = ::Logger::INFO
-        end
+      end
     end
   end.parse!
   if File.exist?(File.expand_path(options[:config_file]))
