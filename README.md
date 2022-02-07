@@ -51,281 +51,267 @@ standard Ruby.
 The following configuration options are available:
 * **`berks`**
 
-	Description: Determines if we should use Berkshelf to resolve dependencies and upload cookbooks
+  Description: Determines if we should use Berkshelf to resolve deps, upload cookbooks
 
-	CLI Argument(s): `'-b'`, `'--berks'`
+  CLI Argument(s): `'-b'`, `'--berks'`
 
-	Value data type: `Boolean`
+  Value data type: `Boolean`
 
-	Default: `false`
+  Default: `false`
 
-	Notes: Existence of CLI argument equates to `true`
-
+  Notes: Existence of CLI argument equates to `true`
 
 * **`berks_bin`**
 
-	Description: Path to Berkshelf binary.
+  Description: Path to Berkshelf binary.
 
-	CLI Argument(s): `'-B', '--berks-bin FILE'`
+  CLI Argument(s): `'-B', '--berks-bin FILE'`
 
-	Value data type: `String`
+  Value data type: `String`
 
-	Default: `/opt/chefdk/bin/berks`
-
+  Default: `/opt/chefdk/bin/berks`
 
 * **`berks_config`**
 
-	Description: Path to Berkshelf config.
+  Description: Path to Berkshelf config.
 
-	CLI Argument(s): `'--berks-config FILE'`
+  CLI Argument(s): `'--berks-config FILE'`
 
-	Value data type: `String`
+  Value data type: `String`
 
-	Default: `nil`
-
+  Default: `nil`
 
 * **`config_file`**
 
-	Description: Path to Grocery Delivery config
+  Description: Path to Grocery Delivery config
 
-	CLI Argument(s): `-c`, `--config-file FILE`
+  CLI Argument(s): `-c`, `--config-file FILE`
 
-	Value data type: `String`
+  Value data type: `String`
 
-	Default: `/etc/gd-config.rb`
-
+  Default: `/etc/gd-config.rb`
 
 * **`cookbook_paths`**
 
-	Description: An (space-delimited) array of directories that contain cookbooks relative to `reponame`
-	
-	CLI Argument(s): `'--cookbook-paths DIRECTORY1 DIRECTORY2 DIRECTORY3 ...'`
+  Description: Space-delimited array of dirs that contain cookbooks relative
+  to `reponame`
 
-	Value data type: `String`
+  CLI Argument(s): `'--cookbook-paths DIRECTORY1 DIRECTORY2 DIRECTORY3 ...'`
 
-	Default: `['chef/cookbooks']`
+  Value data type: `String`
 
+  Default: `['chef/cookbooks']`
 
 * **`databag_path`**
 
-	Description: A directory to find databags in relative to `reponame`.
-	
-	CLI Argument(s): `'-d', '--databag-path FILE'`
+  Description: A directory to find databags in relative to `reponame`.
 
-	Value data type: `String`
+  CLI Argument(s): `'-d', '--databag-path FILE'`
 
-	Default: `'chef/databags'`
+  Value data type: `String`
 
+  Default: `'chef/databags'`
 
 * **`dry_run`**
 
-	Description: Enable dry-run mode.
-	
-	CLI Argument(s): `'-n', '--dry-run'`
+  Description: Enable dry-run mode.
 
-	Value data type: `Boolean`
+  CLI Argument(s): `'-n', '--dry-run'`
 
-	Default: `false`
+  Value data type: `Boolean`
 
-	Notes: Existence of CLI argument equates to `true`
+  Default: `false`
 
+  Notes: Existence of CLI argument equates to `true`
 
 * **`knife_bin`**
 
-	Description: Path to `knife` binary.
-	
-	CLI Argument(s): `'-k', '--knife-bin FILE'`
+  Description: Path to `knife` binary.
 
-	Value data type: `String`
+  CLI Argument(s): `'-k', '--knife-bin FILE'`
 
-	Default: `/opt/chef/bin/knife`
+  Value data type: `String`
 
-	Notes: e.g. `/var/chef/grocery_delivery_work/ops/chef/cookbooks`
+  Default: `/opt/chef/bin/knife`
 
+  Notes: e.g. `/var/chef/grocery_delivery_work/ops/chef/cookbooks`
 
 * **`knife_config`**
 
-	Description: Knife config to use for uploads.
-	
-	CLI Argument(s): `'-K', '--knife-config FILE'`
+  Description: Knife config to use for uploads.
 
-	Value data type: `String`
+  CLI Argument(s): `'-K', '--knife-config FILE'`
 
-	Default: `/root/.chef/knife.rb`
+  Value data type: `String`
 
-	Notes: `knife.rb` will need to set `cookbook_path` pointing to the cookbook path in the work directory
+  Default: `/root/.chef/knife.rb`
 
+  Notes: `knife.rb` will need to set `cookbook_path` pointing to the cookbook
+  path in the work directory
 
 * **`lockfile`**
 
-	Description: Path to lockfile.
-	
-	CLI Argument(s): `'-l', '--lockfile FILE'`
+  Description: Path to lockfile.
 
-	Value data type: `String`
+  CLI Argument(s): `'-l', '--lockfile FILE'`
 
-	Default: `/var/lock/subsys/grocery_delivery`
+  Value data type: `String`
 
+  Default: `/var/lock/subsys/grocery_delivery`
 
 * **`master_path`**
 
-	Description: The top-level path for Grocery Delivery's work (most other paths are relative to this).
-	
-	CLI Argument(s): `'-m', '--master-path FILE'`
+  Description: The top-level path for Grocery Delivery's work (most other paths
+  are relative to this).
 
-	Value data type: `String`
+  CLI Argument(s): `'-m', '--master-path FILE'`
 
-	Default: `/var/chef/grocery_delivery_work`
+  Value data type: `String`
 
+  Default: `/var/chef/grocery_delivery_work`
 
 * **`pidfile`**
 
-	Description: Path to pidfile.
+  Description: Path to pidfile.
 
-	CLI Argument(s): `-p, --pidfile FILE`
+  CLI Argument(s): `-p, --pidfile FILE`
 
-	Value data type: `String`
+  Value data type: `String`
 
-	Default: `/var/run/grocery_delivery.pid`
-
+  Default: `/var/run/grocery_delivery.pid`
 
 * **`plugin_path`**
 
-	Description: Path to plugin file.
-	
-	CLI Argument(s): `'-P', '--plugin-path FILE'`
+  Description: Path to plugin file.
 
-	Value data type: `String`
+  CLI Argument(s): `'-P', '--plugin-path FILE'`
 
-	Default: `/etc/gd-plugin.rb`
+  Value data type: `String`
+
+  Default: `/etc/gd-plugin.rb`
 
 * **`repo_update`**
 
-	Description: Enables/disables cookbook repo update before run.
-	
-	CLI Argument(s): `'-U', '--no-repo-update'`
+  Description: Enables/disables cookbook repo update before run.
 
-	Value data type: `Boolean`
+  CLI Argument(s): `'-U', '--no-repo-update'`
 
-	Default: `true`
+  Value data type: `Boolean`
 
-	Note: Existence of CLI argument equates to `false`. This might be beneficial for those wanting to run Grocery Delivery in CI, within a container, or some other non-standard environment where there is no need to update the cookbook repository before running Grocery Delivery.
+  Default: `true`
+
+  Note: Existence of CLI argument equates to `false`. This might be beneficial
+  for those wanting to run Grocery Delivery in CI, within a container, or some
+  other non-standard environment where there is no need to update the cookbook
+  repository before running Grocery Delivery.
 
 * **`repo_url`**
 
-	Description: The URL to clone/checkout if it doesn't exist.
-	
-	CLI Argument(s): `'-u', '--repo-url URL'`
+  Description: The URL to clone/checkout if it doesn't exist.
 
-	Value data type: `String`
+  CLI Argument(s): `'-u', '--repo-url URL'`
 
-	Default: `nil`
+  Value data type: `String`
 
+  Default: `nil`
 
 * **`reponame`**
 
-	Description: The relative directory to check the repo out to, inside of `master_path`.
-	
-	CLI Argument(s): `'-N', '--repo-name'`
+  Description: The relative directory to check the repo out to, inside of `master_path`.
 
-	Value data type: `String`
+  CLI Argument(s): `'-N', '--repo-name'`
 
-	Default: `ops`
+  Value data type: `String`
 
+  Default: `ops`
 
 * **`rev_checkpoint`**
 
-	Description: Name of the file to store the last-uploaded revision, relative to `reponame`.
-	
-	CLI Argument(s): `'-C', '--revision-checkpoint FILE'`
+  Description: Name of the file to store the last-uploaded revision, relative to `reponame`.
 
-	Value data type: `String`
+  CLI Argument(s): `'-C', '--revision-checkpoint FILE'`
 
-	Default: `gd_revision`
+  Value data type: `String`
 
+  Default: `gd_revision`
 
 * **`role_path`**
 
-	Description: A directory to find roles in relative to `reponame`.
-	
-	CLI Argument(s): `'-r', '--role-path FILE'`
+  Description: A directory to find roles in relative to `reponame`.
 
-	Value data type: `String`
+  CLI Argument(s): `'-r', '--role-path FILE'`
 
-	Default: `'chef/roles'`
+  Value data type: `String`
 
+  Default: `'chef/roles'`
 
 * **`role_type`**
 
-	Description: RB or JSON roles?
-	
-	CLI Argument(s): `'-R', '--role-type TYPE'`
+  Description: RB or JSON roles?
 
-	Value data type: `String`
+  CLI Argument(s): `'-R', '--role-type TYPE'`
 
-	Default: `rb`
+  Value data type: `String`
+
+  Default: `rb`
 
 * **`stdout`**
 
-	Description: Log to stdout as well.
-	
-	CLI Argument(s): `'--stdout'`
+  Description: Log to stdout as well.
 
-	Value data type: `Boolean` 
+  CLI Argument(s): `'--stdout'`
 
-	Default: `false`
+  Value data type: `Boolean` 
 
-	Notes: Existence of CLI argument equates to `true`
+  Default: `false`
 
+  Notes: Existence of CLI argument equates to `true`
 
 * **`track_symlinks`**
 
-	Description: Whether or not to track symlinks.
-	
-	CLI Argument(s): `'--track-symlinks'`
+  Description: Whether or not to track symlinks.
 
-	Value data type: `Boolean` 
+  CLI Argument(s): `'--track-symlinks'`
 
-	Default: `false`
+  Value data type: `Boolean` 
 
-	Notes: Existence of CLI argument equates to `true`
+  Default: `false`
 
+  Notes: Existence of CLI argument equates to `true`
 
 * **`vcs_path`**
 
-	Description: Path to git or svn binary.
-	
-	CLI Argument(s): `'--vcs-path FILE'`
+  Description: Path to git or svn binary.
 
-	Value data type: `String`
+  CLI Argument(s): `'--vcs-path FILE'`
 
-	Default: `nil`
+  Value data type: `String`
 
-	Notes: If not given, just uses 'git' or 'svn'
+  Default: `nil`
+
+  Notes: If not given, just uses 'git' or 'svn'
 
 * **`vcs_type`**
 
-	Description: Git or SVN?
+  Description: Git or SVN?
 
-	CLI Argument(s): `'--vcs-type TYPE'`
+  CLI Argument(s): `'--vcs-type TYPE'`
 
-	Value data type: `String`
+  Value data type: `String`
 
-	Default: `svn`
-
-	Notes: 
+  Default: `svn`
 
 * **`verbosity`**
 
-	Description: Verbosity level.
-	
-	CLI Argument(s): `'-v'`, `'--verbosity'`
+  Description: Verbosity level.
 
-	Value data type: N/A
+  CLI Argument(s): `'-v'`, `'--verbosity'`
 
-	Default: `WARN`
+  Value data type: N/A
 
-	Notes: Specify twice via CLI for debug.
+  Default: `WARN`
+
+  Notes: Specify twice via CLI for debug.
 
 
 ## Plugin
