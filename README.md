@@ -201,15 +201,15 @@ The following configuration options are available:
 
 * **`repo_update`**
 
-	Description: Enable/disable cookbook repo update before run.
+	Description: Enables/disables cookbook repo update before run.
 	
-	CLI Argument(s): `'-U', '--no-repo-update BOOL'`
+	CLI Argument(s): `'-U', '--no-repo-update'`
 
 	Value data type: `Boolean`
 
 	Default: `true`
 
-	Note: Existence of CLI argument equates to `false`
+	Note: Existence of CLI argument equates to `false`. This might be beneficial for those wanting to run Grocery Delivery in CI, within a container, or some other non-standard environment where there is no need to update the cookbook repository before running Grocery Delivery.
 
 * **`repo_url`**
 
@@ -327,9 +327,6 @@ The following configuration options are available:
 
 	Notes: Specify twice via CLI for debug.
 
-
-The following CLI arguments are also available:
-* no_update (bool, default: `false`)
 
 ## Plugin
 
