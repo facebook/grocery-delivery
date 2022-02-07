@@ -52,7 +52,7 @@ The following configuration options are available:
 * **`berks`**
 
 	Description: Determines if we should use Berkshelf to resolve dependencies and upload cookbooks
-	
+
 	CLI Argument(s): `'-b'`, `'--berks'`
 
 	Value data type: `Boolean`
@@ -62,10 +62,10 @@ The following configuration options are available:
 	Notes: Existence of CLI argument equates to `true`
 
 
-* **`berks_bin`** 
+* **`berks_bin`**
 
 	Description: Path to Berkshelf binary.
-	
+
 	CLI Argument(s): `'-B', '--berks-bin FILE'`
 
 	Value data type: `String`
@@ -76,10 +76,10 @@ The following configuration options are available:
 * **`berks_config`**
 
 	Description: Path to Berkshelf config.
-	
+
 	CLI Argument(s): `'--berks-config FILE'`
 
-	Value data type: `String` 
+	Value data type: `String`
 
 	Default: `nil`
 
@@ -87,7 +87,7 @@ The following configuration options are available:
 * **`config_file`**
 
 	Description: Path to Grocery Delivery config
-	
+
 	CLI Argument(s): `-c`, `--config-file FILE`
 
 	Value data type: `String`
@@ -95,7 +95,7 @@ The following configuration options are available:
 	Default: `/etc/gd-config.rb`
 
 
-* **`cookbook_paths`** 
+* **`cookbook_paths`**
 
 	Description: An (space-delimited) array of directories that contain cookbooks relative to `reponame`
 	

@@ -187,15 +187,15 @@ def setup_config
   options = {}
   OptionParser.new do |opts|
     options[:config_file] = GroceryDelivery::Config.config_file
-	opts.on('-b', '--berks', 'Use berkshelf to resolve dependencies and upload cookbooks.') do |_s|
-		options[:berks] = true
-	end
-	opts.on('-B', '--berks-bin FILE', 'Path to berkshelf binary') do |s|
+    opts.on('-b', '--berks', 'Use berkshelf to resolve dependencies and upload cookbooks.') do |_s|
+      options[:berks] = true
+    end
+    opts.on('-B', '--berks-bin FILE', 'Path to berkshelf binary') do |s|
       options[:berks_bin] = s
     end
-	opts.on('--berks-config FILE', 'Path to berkshelf config') do |s|
-		options[:berks_config] = s
-	  end
+    opts.on('--berks-config FILE', 'Path to berkshelf config') do |s|
+	  options[:berks_config] = s
+    end
     opts.on('-c', '--config-file FILE', 'config file') do |s|
       unless File.exist?(File.expand_path(s))
         GroceryDelivery::Log.error("Config file #{s} not found.")
@@ -203,71 +203,71 @@ def setup_config
       end
       options[:config_file] = s
     end
-	opts.on('-C', '--revision-checkpoint FILE', 'Name of the file to store the last-uploaded revision, relative to reponame') do |s|
-		options[:rev_checkpoint] = s
-	end
-	opts.on('--cookbook-paths DIRECTORY1 DIRECTORY2 DIRECTORY3 ...', Array, 'An (space-delimited) array of directories that contain cookbooks relative to reponame') do |s|
-		options[:cookbook_paths] = s
-	end
-	opts.on('-d', '--databag-path FILE', 'A directory to find databags in relative to reponame') do |s|
-		options[:databag_path] = s
-	end
-	opts.on('-k', '--knife-bin FILE', 'Path to knife') do |s|
-		options[:knife_bin] = s
-	end
-	opts.on('-K', '--knife-config FILE', 'Path to knife config to use for uploads') do |s|
-		options[:knife_config] = s
-	end  
-	opts.on('-l', '--lockfile FILE', 'lockfile') do |s|
-    	options[:lockfile] = s
+    opts.on('-C', '--revision-checkpoint FILE', 'Name of the file to store the last-uploaded revision, relative to reponame') do |s|
+      options[:rev_checkpoint] = s
     end
-	opts.on('-m', '--master-path FILE', 'master path') do |s|
-		options[:master_path] = s
+    opts.on('--cookbook-paths DIRECTORY1 DIRECTORY2 DIRECTORY3 ...', Array, 'An (space-delimited) array of directories that contain cookbooks relative to reponame') do |s|
+      options[:cookbook_paths] = s
+    end
+    opts.on('-d', '--databag-path FILE', 'A directory to find databags in relative to reponame') do |s|
+      options[:databag_path] = s
+    end
+    opts.on('-k', '--knife-bin FILE', 'Path to knife') do |s|
+      options[:knife_bin] = s
+    end
+    opts.on('-K', '--knife-config FILE', 'Path to knife config to use for uploads') do |s|
+      options[:knife_config] = s
+    end  
+    opts.on('-l', '--lockfile FILE', 'lockfile') do |s|
+      options[:lockfile] = s
+    end
+    opts.on('-m', '--master-path FILE', 'master path') do |s|
+      options[:master_path] = s
 	end
     opts.on('-n', '--dry-run', 'Dryrun mode') do |_s|
-		options[:dry_run] = true
-	end
-	opts.on('-N', '--repo-name FILE', 'Relative directory to check the repo out to, inside of master_path') do |s|
-		options[:reponame] = s
-	end
-    opts.on('-p', '--pidfile FILE', 'Path to pidfile') do |s|
-    	options[:pidfile] = s
+      options[:dry_run] = true
     end
-	opts.on('-P', '--plugin-path FILE', 'Path to plugin file') do |s|
-		options[:plugin_path] = s
-	end
+    opts.on('-N', '--repo-name FILE', 'Relative directory to check the repo out to, inside of master_path') do |s|
+      options[:reponame] = s
+    end
+    opts.on('-p', '--pidfile FILE', 'Path to pidfile') do |s|
+      options[:pidfile] = s
+    end
+    opts.on('-P', '--plugin-path FILE', 'Path to plugin file') do |s|
+      options[:plugin_path] = s
+    end
     opts.on('-r', '--role-path FILE', 'A directory to find roles in relative to reponame') do |s|
-		options[:role_path] = s
-	end
+      options[:role_path] = s
+    end
     opts.on('-R', '--role-type TYPE', 'RB or JSON roles') do |s|
-		options[:role_type] = s
-	end
-	opts.on('--stdout', 'Log to stdout as well.') do |_s|
-		options[:stdout] = true
-	end
-	opts.on('--track-symlinks', 'Track symlinks.') do |_s|
-		options[:track_symlinks] = true
-	end
+      options[:role_type] = s
+    end
+    opts.on('--stdout', 'Log to stdout as well.') do |_s|
+      options[:stdout] = true
+    end
+    opts.on('--track-symlinks', 'Track symlinks.') do |_s|
+      options[:track_symlinks] = true
+    end
     opts.on('-u', '--repo-url URL', 'URL to clone/checkout if it does not exist') do |s|
-		options[:repo_url] = s
-	end
+      options[:repo_url] = s
+    end
     opts.on('-U', '--no-repo-update', 'Disable cookbook repo update before run') do |_s|
-		options[:repo_update] = false
-	end
-	opts.on('--vcs-path FILE', 'Path to git or svn binary') do |s|
-		options[:vcs_path] = s
-	end
-	opts.on('--vcs-type TYPE', 'Git or SVN') do |s|
-		options[:vcs_type] = s
-	end
-	opts.on('-v', '--verbosity', 'Verbosity level. Twice for debug.') do
-		# If -vv is supplied this block is executed twice
-		if options[:verbosity]
-		  options[:verbosity] = ::Logger::DEBUG
-		else
-		  options[:verbosity] = ::Logger::INFO
-		end
-	end
+      options[:repo_update] = false
+    end
+    opts.on('--vcs-path FILE', 'Path to git or svn binary') do |s|
+      options[:vcs_path] = s
+    end
+    opts.on('--vcs-type TYPE', 'Git or SVN') do |s|
+      options[:vcs_type] = s
+    end
+    opts.on('-v', '--verbosity', 'Verbosity level. Twice for debug.') do
+      # If -vv is supplied this block is executed twice
+	  if options[:verbosity]
+        options[:verbosity] = ::Logger::DEBUG
+      else
+        options[:verbosity] = ::Logger::INFO
+      end
+    end
   end.parse!
   if File.exist?(File.expand_path(options[:config_file]))
     GroceryDelivery::Config.from_file(options[:config_file])
