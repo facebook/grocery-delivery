@@ -188,16 +188,15 @@ def setup_config
   OptionParser.new do |opts|
     options[:config_file] = GroceryDelivery::Config.config_file
     opts.on('-b',
-	        '--berks',
-	        'Use Berkshelf to resolve deps, upload cookbooks.'
-		   ) do |_s|
+            '--berks',
+            'Use Berkshelf to resolve deps, upload cookbooks.') do |_s|
       options[:berks] = true
     end
     opts.on('-B', '--berks-bin FILE', 'Path to berkshelf binary') do |s|
       options[:berks_bin] = s
     end
     opts.on('--berks-config FILE', 'Path to berkshelf config') do |s|
-	  options[:berks_config] = s
+      options[:berks_config] = s
     end
     opts.on('-c', '--config-file FILE', 'config file') do |s|
       unless File.exist?(File.expand_path(s))
@@ -207,44 +206,39 @@ def setup_config
       options[:config_file] = s
     end
     opts.on('-C',
-	        '--revision-checkpoint FILE',
-	        'File to store the last-uploaded revision, relative to reponame'
-		   ) do |s|
+            '--revision-checkpoint FILE',
+            'File to store the last-uploaded revision, relative to reponame') do |s|
       options[:rev_checkpoint] = s
     end
     opts.on('--cookbook-paths DIRECTORY1 DIRECTORY2 DIRECTORY3 ...',
-	        Array,
-			'Space-delimited array of dirs to cookbooks relative to reponame'
-		   ) do |s|
+            Array,
+            'Space-delimited array of dirs to cookbooks relative to reponame') do |s|
       options[:cookbook_paths] = s
     end
     opts.on('-d', '--databag-path FILE',
-	        'Directory with databags in relative to reponame'
-		   ) do |s|
+            'Directory with databags in relative to reponame') do |s|
       options[:databag_path] = s
     end
     opts.on('-k', '--knife-bin FILE', 'Path to knife') do |s|
       options[:knife_bin] = s
     end
     opts.on('-K',
-	        '--knife-config FILE',
-	        'Path to knife config to use for uploads'
-		   ) do |s|
+            '--knife-config FILE',
+            'Path to knife config to use for uploads') do |s|
       options[:knife_config] = s
-    end  
+    end
     opts.on('-l', '--lockfile FILE', 'lockfile') do |s|
       options[:lockfile] = s
     end
     opts.on('-m', '--master-path FILE', 'master path') do |s|
       options[:master_path] = s
-	end
+    end
     opts.on('-n', '--dry-run', 'Dryrun mode') do |_s|
       options[:dry_run] = true
     end
     opts.on('-N',
-	        '--repo-name FILE',
-	        'Relative directory to clone to, inside of master_path'
-		   ) do |s|
+            '--repo-name FILE',
+            'Relative directory to clone to, inside of master_path') do |s|
       options[:reponame] = s
     end
     opts.on('-p', '--pidfile FILE', 'Path to pidfile') do |s|
@@ -279,11 +273,11 @@ def setup_config
     end
     opts.on('-v', '--verbosity', 'Verbosity level. Twice for debug.') do
       # If -vv is supplied this block is executed twice
-	  if options[:verbosity]
+      if options[:verbosity]
         options[:verbosity] = ::Logger::DEBUG
       else
         options[:verbosity] = ::Logger::INFO
-      end
+        end
     end
   end.parse!
   if File.exist?(File.expand_path(options[:config_file]))
@@ -325,7 +319,7 @@ GroceryDelivery::Hooks.prerun(GroceryDelivery::Config.dry_run)
 
 if repo.exists?
   action('Updating repo')
-  repo.update unless (GroceryDelivery::Config.dry_run || !GroceryDelivery::Config.update)
+  repo.update unless GroceryDelivery::Config.dry_run || !GroceryDelivery::Config.update
 else
   unless GroceryDelivery::Config.repo_url
     GroceryDelivery::Log.error(
