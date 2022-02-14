@@ -23,28 +23,29 @@ module GroceryDelivery
   # it's compatible with v2, so it should work in 11 too.
   class Config
     extend Mixlib::Config
-    stdout false
-    dry_run false
-    verbosity Logger::WARN
-    config_file '/etc/gd-config.rb'
-    pidfile '/var/run/grocery_delivery.pid'
-    lockfile '/var/lock/subsys/grocery_delivery'
-    master_path '/var/chef/grocery_delivery_work'
-    repo_url nil
-    reponame 'ops'
-    cookbook_paths ['chef/cookbooks']
-    role_path 'chef/roles'
-    role_type 'rb'
-    databag_path 'chef/databags'
-    rev_checkpoint 'gd_revision'
-    knife_config '/root/.chef/knife.rb'
-    knife_bin '/opt/chef/bin/knife'
-    vcs_type 'svn'
-    vcs_path nil
-    plugin_path '/etc/gd-plugin.rb'
     berks false
     berks_bin '/opt/chefdk/bin/berks'
     berks_config nil
+    config_file '/etc/gd-config.rb'
+    cookbook_paths ['chef/cookbooks']
+    databag_path 'chef/databags'
+    dry_run false
+    lockfile '/var/lock/subsys/grocery_delivery'
+    master_path '/var/chef/grocery_delivery_work'
+    knife_bin '/opt/chef/bin/knife'
+    knife_config '/root/.chef/knife.rb'
+    pidfile '/var/run/grocery_delivery.pid'
+    plugin_path '/etc/gd-plugin.rb'
+    repo_update true
+    repo_url nil
+    reponame 'ops'
+    role_path 'chef/roles'
+    role_type 'rb'
+    stdout false
     track_symlinks false
+    rev_checkpoint 'gd_revision'
+    vcs_path nil
+    vcs_type 'svn'
+    verbosity Logger::WARN
   end
 end
