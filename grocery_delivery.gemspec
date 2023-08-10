@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.bindir = %w{bin}
   s.executables = %w{grocery-delivery}
 
-  s.required_ruby_version = '>= 2.4.0'
+  s.required_ruby_version = '>= 2.5.0'
   s.add_dependency 'between_meals', '>= 0.0.11'
   s.add_dependency 'mixlib-config'
 end
