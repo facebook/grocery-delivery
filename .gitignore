@@ -20,7 +20,6 @@ tmp
 *.o
 *.a
 mkmf.log
-bin/
 sbin/
 test/syntaxcache/
 .vagrant
