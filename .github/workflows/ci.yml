@@ -8,11 +8,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [2.5, 2.6, 2.7]
+        ruby: ['2.7', '3.0', '3.1']
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -32,7 +32,7 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
 #    - name: Checkout repository
-#      uses: actions/checkout@v2
+#      uses: actions/checkout@v3
 #    - name: Run Rubocop Linter
 #      uses: andrewmcodes/rubocop-linter-action@v3.2.0
 #      env:
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Lint Markdown
       uses: actionshub/markdownlint@1.2.0
     - name: Check links
