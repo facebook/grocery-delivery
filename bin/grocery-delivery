@@ -17,8 +17,7 @@
 
 require 'between_meals/util'
 require 'between_meals/knife'
-require 'between_meals/repo/svn'
-require 'between_meals/repo/git'
+require 'between_meals/repo'
 require 'between_meals/changeset'
 require 'grocery_delivery/config'
 require 'grocery_delivery/logging'
