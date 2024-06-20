@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -32,7 +32,7 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
 #    - name: Checkout repository
-#      uses: actions/checkout@v2
+#      uses: actions/checkout@v4
 #    - name: Run Rubocop Linter
 #      uses: andrewmcodes/rubocop-linter-action@v3.2.0
 #      env:
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Lint Markdown
       uses: actionshub/markdownlint@1.2.0
     - name: Check links
