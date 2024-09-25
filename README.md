@@ -35,11 +35,69 @@ feature is [built-in](https://docs.chef.io/nodes/#whitelist-attributes). For
 older versions, we recommend using the
 [`whitelist_node_attrs`](https://github.com/chef-boneyard/whitelist-node-attrs)
 cookbook.
+## Installation Guide
+Follow these steps to install and set up Grocery Delivery on your machine:
+
+1. Install Ruby
+Ensure that Ruby is installed on your machine. You can check this by running the following command in your terminal:
+
+ruby -v
+
+If Ruby is not installed, you can install it using a version manager like rbenv or rvm:
+
+Install Ruby via rbenv:
+
+# Install rbenv and Ruby-build
+brew install rbenv
+
+# Initialize rbenv and install Ruby
+rbenv init
+rbenv install 2.7.4 # or latest supported version
+rbenv global 2.7.4
+Install Ruby via rvm:
+
+# Install RVM (Ruby Version Manager)
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+2. Install Bundler
+Bundler is a Ruby gem that helps manage dependencies. To install Bundler, run the following:
+
+gem install bundler
+
+3. Clone the Repository
+Clone the Grocery Delivery repository to your local machine using Git:
+
+git clone https://github.com/facebook/grocery-delivery.git
+cd grocery-delivery
+
+4. Install Dependencies
+After cloning the repository, install all the required dependencies:
+
+bundle install
+
+5. Set Up Configuration
+Before running Grocery Delivery, you need to set up a configuration file. The configuration file should include details such as repository URLs and other settings. Here’s an example configuration template:
+
+Create a configuration file grocery_delivery.yaml:
+
+repositories:
+  - repo1: https://path/to/repo1.git
+  - repo2: https://path/to/repo2.git
+
+# Add other necessary configurations here
+
+6. Run the Application
+Once the dependencies are installed and the configuration is set up, you can run the application. Use the following command:
+
+./bin/grocery-delivery -c path/to/grocery_delivery.yaml
+7. Verify Installation
+If everything is set up correctly, the application should start processing the repositories based on your configuration.
+
 
 ## Dependencies
 
 * Mixlib::Config
-* BetweenMeals
+* BetweenMeal
 
 ## Config file
 
