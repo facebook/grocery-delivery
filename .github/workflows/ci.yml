@@ -19,6 +19,8 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
       run: bundle install
+    - name: Install subversion for functional tests
+      run: sudo apt-get install -y subversion
     - name: Run rspec
       run: bundle exec rspec
     - name: Run rubocop
