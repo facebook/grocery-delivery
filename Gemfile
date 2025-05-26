@@ -4,7 +4,7 @@ gemspec
 
 group :development, :test do
   gem 'between_meals', :git => 'https://github.com/facebook/between-meals'
-  gem 'chef-dk', '~> 3.13.0'
+  gem 'chef', '= 16.18.0'
   gem 'chef-zero'
   gem 'openssl'
   gem 'rspec-core', '>= 3.0.0'
