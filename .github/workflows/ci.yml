@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [2.5, 2.6, 2.7]
+        ruby: ['2.7', '3.0', '3.1']
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -19,6 +19,8 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
       run: bundle install
+    - name: Install subversion for functional tests
+      run: sudo apt-get install -y subversion
     - name: Run rspec
       run: bundle exec rspec
     - name: Run rubocop
